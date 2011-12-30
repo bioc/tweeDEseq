@@ -17,8 +17,9 @@ loglikPoissonTweedie <- function(p, x, mu, verbose=FALSE, tol=1e-15){
   b <- (mu*(1-a)^(1-a))/((D-1)*(D-a)^(-a))   
   c <- (D-1)/(D-a)
 
-
-  if(a!=1)
+  if(abs(a)<0.001)
+    prx <- dnbinom(0:mm, mu=mu, size=b)
+  else  if(a<=1-1e-3)
     prx <- .Call("zhuprobs", as.integer(mm), a, b, c, tol)
   else
     prx <- dpois(0:mm, b)

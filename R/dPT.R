@@ -24,9 +24,9 @@ dPT <- function (x, mu, D, a, tol=1e-15)
   x.unique <- as.numeric(names(x.t))
   mm <- max(x.unique)
   
-  if (a==0)
+  if (abs(a)<1e-3)
     prx <- dnbinom(0:mm, mu=mu, size=b)
-  else if (a==1)
+  else if (a>=1-1e-3)
     prx <- dpois(0:mm, b)
   else
     prx <- .Call("zhuprobs", as.integer(mm), a, b, c, tol)
