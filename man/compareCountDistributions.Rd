@@ -30,9 +30,11 @@ Compare count data distributions
 
 \references{
   M. Esnaola, P. Puig, D. Gonzalez, R. Castelo, J.R. Gonzalez.
-  Gene-specific count data distributions are required in RNA-seq
-  experiments with extensive replication. Submitted.
+  A flexible count data model to fit the wide diversity of expression
+  profiles arising from extensively replicated RNA-seq
+  experiments. Submitted. 
 }
+
 
 \seealso{
   \code{\link{qqchisq}}
