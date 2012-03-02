@@ -59,7 +59,7 @@ loglikPoissonTweedie2 <- function(p, a, x, mu, verbose=FALSE, tol=1e-15){
   else  if(a<=1-1e-3)
     prx <- .Call("zhuprobs", as.integer(mm), a, b, c, tol)
   else
-    prx <- dpois(0:mm, )b
+    prx <- dpois(0:mm, b)
   q <- prx[x.unique+1]
   if(any(q==0) || any(is.na(q)))
    loglik <- -1e20
