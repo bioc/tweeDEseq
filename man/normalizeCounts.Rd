@@ -60,12 +60,13 @@ normalizeCounts(counts, group=rep.int(1,ncol(counts)), method=c("TMM", "cqn"),
 \details{
   This function encapsulates calls to RNA-seq normalization procedures available in
   the \code{\link[edgeR]{edgeR}} and \code{\link[cqn]{cqn}} packages in order to try
-  to remove systematic technical effects from raw counts. By default, the TMM method
-  described in Robinson and Oshlack (2010) is employed to calculate normalization
-  factors which are applied to estimate effective library sizes, then common and
-  tagwise (only when the argument \code{common.disp=TRUE}) dispersions are calculated
-  and finally counts are adjusted so that library sizes are approximately equal for the
-  given dispersion values. Setting the argument \code{method="cqn"}, conditional
+  to remove systematic technical effects from raw counts.By default, the
+  TMM method described in Robinson and Oshlack (2010) is employed to calculate normalization factors which are applied to
+  estimate effective library sizes, then common and tagwise (only when the
+  argument common.disp=TRUE) dispersions are calculated (Robinson and Smyth,
+  Bioinformatics 2007) and finally counts are adjusted so that library sizes
+  are approximately equal for the given dispersion values (Robinson and
+  Smyth, Biostatistics 2008).Setting the argument \code{method="cqn"}, conditional
   quantile normalization (Hansen, Irizarry and Wu, 2012) is applied which aims at
   adjusting for tag/feature/gene length and other covariate such as G+C content. This
   information should be provided through the \code{annot} argument. This procedure
@@ -88,6 +89,14 @@ normalizeCounts(counts, group=rep.int(1,ncol(counts)), method=c("TMM", "cqn"),
   M.D. Robinson and A. Oshlack. A scaling normalization method for
   differential expression analysis of RNA-seq data. \emph{Genome Biol},
   11:R25, 2010.
+
+  Robinson MD and Smyth GK (2007). Moderated statistical tests for
+  assessing differences in tag abundance. _Bioinformatics_ 23,
+  2881-2887
+
+  Robinson MD and Smyth GK (2008). Small-sample estimation of
+  negative binomial dispersion, with applications to SAGE data.
+  _Biostatistics_, 9, 321-332
 }
 
 \author{
