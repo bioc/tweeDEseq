@@ -135,7 +135,7 @@ tweeDE <- function(object, group, mc.cores=1, pair=NULL, a=NULL, ...)
       res <-t(data.frame(lapply(data, test.i, g = group, nc = 1, inputA = inputA)))
     
     close(pb)
-    colnames(res)[1:2] <- groups
+    colnames(res)[1:2] <- paste("mean", pair, sep = "")
     
     pval.bh <- p.adjust(res[,4], "BH")
     if(identical(pair, groups))
